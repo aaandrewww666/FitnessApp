@@ -11,7 +11,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.example.fitnessapp.databinding.FragmentBMIBinding
 import com.example.fitnessapp.ui.firebase.FireAuth
 import com.example.fitnessapp.ui.firebase.FireStore
-import com.example.fitnessapp.ui.model.ViewModel
+import com.example.fitnessapp.ui.viewmodels.ViewModel
 import java.util.*
 
 class BMIFragment : Fragment() {

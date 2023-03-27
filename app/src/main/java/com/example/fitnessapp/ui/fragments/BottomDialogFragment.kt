@@ -1,18 +1,14 @@
 package com.example.fitnessapp.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.view.get
 import androidx.fragment.app.activityViewModels
 import com.example.fitnessapp.R
-import com.example.fitnessapp.ui.model.ViewModel
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.example.fitnessapp.ui.viewmodels.ViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import java.util.*
 
 
 class BottomDialogFragment : BottomSheetDialogFragment() {

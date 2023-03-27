@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentStatisticsBinding
 import com.example.fitnessapp.ui.data.adapters.WeightAdapter
-import com.example.fitnessapp.ui.model.ViewModel
+import com.example.fitnessapp.ui.viewmodels.ViewModel
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData

@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import com.example.fitnessapp.databinding.FragmentWaterConsumptionBinding
-import com.example.fitnessapp.ui.model.ViewModel
-import kotlinx.coroutines.coroutineScope
+import com.example.fitnessapp.ui.viewmodels.ViewModel
 
 class WaterConsumptionFragment : Fragment() {
 

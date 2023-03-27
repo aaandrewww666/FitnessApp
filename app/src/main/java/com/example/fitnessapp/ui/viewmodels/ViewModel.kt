@@ -1,15 +1,11 @@
-package com.example.fitnessapp.ui.model
+package com.example.fitnessapp.ui.viewmodels
 
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.fitnessapp.R
 import com.example.fitnessapp.ui.data.WeightData
 import com.example.fitnessapp.ui.firebase.FireAuth
 import com.example.fitnessapp.ui.firebase.FireStore
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.toObject
 
 class ViewModel : ViewModel() {
