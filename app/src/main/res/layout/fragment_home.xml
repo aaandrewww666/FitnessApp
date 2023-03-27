@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_exercises"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_for_buttons"
+        android:text="@string/exercises"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_food"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_for_buttons"
+        android:text="@string/food"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_BMI"
+        android:layout_margin = "10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_for_buttons"
+        android:text="@string/bmi"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_water_consumption"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_for_buttons"
+        android:text="@string/water_consumption"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+</LinearLayout>

@@ -1,0 +1,78 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.FitnessApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_background</item>
+        <item name="colorPrimaryVariant">#d4c1de</item>
+        <item name="colorOnError">#ff2d55</item>
+        <item name="colorOnBackground">@color/app_background</item>
+        <!-- Status bar color. -->
+        <item name="fontFamily">@font/aldrich</item>
+        <item name="android:statusBarColor">@color/app_background</item>
+        <!-- Navigation bar color -->
+        <item name="android:navigationBarColor">@color/app_background</item>
+
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Slider" parent="Widget.MaterialComponents.Slider">
+        <item name="colorAccent">@color/purple</item>
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorOnBackground">@color/purple</item>
+        <item name="thumbColor">@color/purple</item>
+        <item name="haloColor">@color/purple</item>
+        <item name="thumbStrokeColor">@color/purple</item>
+        <item name="thumbRadius">@color/purple</item>
+        <item name="trackColor">@color/purple</item>
+    </style>
+
+    <style name="BoxesStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/purple</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="boxStrokeColor" >@drawable/selector_for_outlined_boxes</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="textOutlineColor">@color/white</item>
+    </style>
+
+    <style name="InputET" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+    </style>
+
+    <style name="NoBorderBoxesStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/app_background</item>
+        <item name="android:textColorHint">@color/app_background</item>
+        <item name="android:textColor">@color/app_background</item>
+        <item name="boxStrokeColor" >@drawable/selector_for_no_border_boxes_</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="textOutlineColor">@color/white</item>
+    </style>
+
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModelStyle</item>
+    </style>
+    <style name="AppModelStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_shape</item>
+    </style>
+
+    <style name="SearchViewTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">@android:color/white</item>
+        <!-- Text Size -->
+        <item name="android:textSize">22sp</item>
+        <!-- Query Text Color -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- Hint Color -->
+        <item name="android:textColorHint">@color/white</item>
+        <!-- Icon Color -->
+        <item name="android:tint">@color/white</item>
+    </style>
+</resources>
