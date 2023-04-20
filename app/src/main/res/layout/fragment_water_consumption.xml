@@ -6,16 +6,26 @@
     android:orientation="vertical"
     android:gravity="center_vertical"
     android:background="@color/app_background"
-    tools:context=".ui.fragments.WaterConsumptionFragment">
+    tools:context=".fragments.WaterConsumptionFragment">
 
     <ImageView
+        android:id="@+id/water_image"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/water_ico"
         android:layout_gravity="center_horizontal"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminateDrawable="@drawable/spinner_ring"
+        android:indeterminateOnly="true"
+        android:layout_gravity="center_horizontal"
+        />
 
     <TextView
-android:layout_gravity="center_horizontal"
+        android:id="@+id/personShouldDrinkTV"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -25,6 +35,7 @@ android:layout_gravity="center_horizontal"
         android:textSize="22sp" />
 
     <LinearLayout
+        android:id="@+id/showLitresLL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
@@ -47,6 +58,7 @@ android:layout_gravity="center_horizontal"
             android:textSize="50sp" />
     </LinearLayout>
     <TextView
+        android:id="@+id/ofFluidsTV"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

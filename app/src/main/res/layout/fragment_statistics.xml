@@ -7,10 +7,23 @@
     android:layout_gravity="center_horizontal"
     android:background="@color/app_background"
     android:orientation="vertical"
-    tools:context=".ui.fragments.StatisticsFragment">
+    tools:context=".fragments.StatisticsFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminateDrawable="@drawable/spinner_ring"
+        android:indeterminateOnly="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <LinearLayout
         android:id="@+id/linearLayout"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -30,7 +43,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWeightData"
-
+        android:visibility="invisible"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="10dp"
@@ -43,6 +56,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addWeightBtn"
+        android:visibility="invisible"
+        android:enabled="false"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginStart="10dp"

@@ -7,10 +7,19 @@
     android:background="@color/app_background"
 
     android:orientation="vertical"
-    tools:context=".ui.identification.users.fragments.RegistrationFragment">
+    tools:context=".fragments.RegistrationFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminateDrawable="@drawable/spinner_ring"
+        android:indeterminateOnly="true"
+        android:layout_gravity="center"
+        />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical|center_horizontal"
@@ -34,6 +43,27 @@
                 android:singleLine="true"
                 android:textCursorDrawable="@drawable/text_cursor"
                 android:autofillHints="emailAddress"
+                android:textAlignment="viewStart"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/enter_username"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            style="@style/BoxesStyle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/text_cursor"
                 android:textAlignment="viewStart"/>
         </com.google.android.material.textfield.TextInputLayout>
 

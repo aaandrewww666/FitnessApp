@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     android:id="@+id/drawerLayout"
     tools:openDrawer="start"
-    tools:context=".ui.fragments.MainFragment">
+    tools:context=".fragments.MainFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="0dp"

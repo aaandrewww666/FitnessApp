@@ -6,7 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/app_background"
     android:orientation="vertical"
-    tools:context=".ui.identification.users.fragments.AuthenticationFragment">
+    tools:context=".fragments.AuthenticationFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminateDrawable="@drawable/spinner_ring"
+        android:indeterminateOnly="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <LinearLayout
         android:id="@+id/linearLayoutFitness"
@@ -44,9 +56,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayoutEditTexts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/enterBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,9 +100,9 @@
             android:layout_marginEnd="20dp"
             android:gravity="center"
             android:hint="@string/enter_password"
-            app:counterTextColor="@color/white"
             app:counterEnabled="true"
             app:counterMaxLength="20"
+            app:counterTextColor="@color/white"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/white">
 
@@ -111,11 +124,11 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/enterBtn"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
 
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/shape_for_button"
         android:text="@string/enter"
         android:textAllCaps="false"

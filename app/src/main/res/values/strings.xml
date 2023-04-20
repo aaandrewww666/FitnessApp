@@ -5,6 +5,7 @@
     <string name="enter">Sing in</string>
     <string name="register">Sing up</string>
     <string name="enter_email">Enter email</string>
+    <string name="enter_username">Enter username</string>
     <string name="create_a_password">Create password</string>
     <string name="repeat_password">Confirm password</string>
     <string name="username">UserName</string>
@@ -21,8 +22,6 @@
     <string name="target">Target:</string>
     <string name="litres">L</string>
     <string name="you_should_be_drinking">you should be drinking</string>
-    <string name="age">Your age:</string>
-    <string name="gender">Your gender:</string>
     <string name="average_weight">Average weight:</string>
     <string name="kg">kg</string>
     <string name="of_fluids_a_day">of fluids a day</string>
@@ -31,11 +30,13 @@
     <string name="bmi">BMI</string>
     <string name="water_consumption">water consumption</string>
     <string name="programs">programs</string>
-    <string name="cm">cm</string>
-    <string name="choose_gender">Choose gender:</string>
-    <string name="enter_your_weight">Enter your weight:</string>
-    <string name="enter_your_age">Enter your age:</string>
     <string name="your_bmi">Your BMI</string>
-    <string name="your_height">Your height:</string>
     <string name="add_your_weight">add your weight</string>
+    <string name="minus">—</string>
+    <string name="plus">+</string>
+    <string name="age_in_years">Age (In Years)</string>
+    <string name="weight_kg">Weight (Kg)</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="gender">Gender</string>
+    <string name="dot">.</string>
 </resources>
