@@ -47,13 +47,11 @@ class AuthenticationFragment : Fragment() {
                             is DataResult.Successful -> {
                                 withContext(Dispatchers.Main) {
                                     navController.navigate(R.id.action_authorizationFragment_to_mainFragment)
-                                    viewModel.changeState(false)
                                 }
                             }
                             is DataResult.NotFound -> {
                                 withContext(Dispatchers.Main) {
                                     navController.navigate(R.id.action_authorizationFragment_to_physicalIndexesFragment)
-                                    viewModel.changeState(false)
                                 }
                             }
                             is DataResult.Error -> {

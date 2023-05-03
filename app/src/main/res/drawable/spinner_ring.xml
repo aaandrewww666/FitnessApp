@@ -12,8 +12,8 @@
             android:height="100dp"
             android:width="100dp" />
         <gradient
-            android:centerColor="@color/purple_200"
-            android:endColor="@color/purple"
+            android:centerColor="@color/second_colour"
+            android:endColor="@color/first_colour"
             android:startColor="@color/white"
             android:type="sweep"
             android:useLevel="false" />

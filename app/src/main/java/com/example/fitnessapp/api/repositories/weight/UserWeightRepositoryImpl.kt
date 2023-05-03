@@ -1,6 +1,7 @@
 package com.example.fitnessapp.api.repositories.weight
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.example.fitnessapp.api.Api
 import com.example.fitnessapp.api.requests.WeightRequest
 import com.example.fitnessapp.api.responses.MessageResponse
@@ -55,9 +56,6 @@ class UserWeightRepositoryImpl(
             }
         } catch (e: SocketTimeoutException) {
             WeightResult.Error("Не удаётся подключиться к серверу")
-        }
-        catch (e: Exception) {
-            WeightResult.Error("Что-то не так...")
         }
     }
 }

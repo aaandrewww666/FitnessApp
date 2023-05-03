@@ -18,4 +18,9 @@ class FoodFragment : Fragment() {
         _binding = FragmentFoodBinding.inflate(inflater)
         return binding.root
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

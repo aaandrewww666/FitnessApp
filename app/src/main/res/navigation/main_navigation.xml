@@ -32,7 +32,7 @@
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration">
         <action
-            android:id="@+id/action_registrationFragment_to_authorizationFragment2"
+            android:id="@+id/action_registrationFragment_to_authorizationFragment"
             app:destination="@id/authorizationFragment"
             app:popUpTo="@id/authorizationFragment"
             app:popUpToInclusive="true" />

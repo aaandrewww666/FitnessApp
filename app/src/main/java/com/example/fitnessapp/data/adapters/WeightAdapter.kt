@@ -9,9 +9,10 @@ import com.example.fitnessapp.R
 import com.example.fitnessapp.api.requests.WeightRequest
 import java.util.*
 
-class WeightAdapter(private val itemList : List<WeightRequest>) : RecyclerView.Adapter<WeightAdapter.MyViewHolder>() {
+class WeightAdapter(private val itemList: List<WeightRequest>): RecyclerView.Adapter<WeightAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val weightShow : TextView = itemView.findViewById(R.id.weight_TV)
+        val weightShow: TextView = itemView.findViewById(R.id.weightTV)
+        val dateShow: TextView = itemView.findViewById(R.id.dateTV)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -24,11 +25,8 @@ class WeightAdapter(private val itemList : List<WeightRequest>) : RecyclerView.A
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val weight = itemList[position].userWeight
         val date = itemList[position].date
-        if(Locale.getDefault().country != "RU") {
-            holder.weightShow.text = "Weight: $weight, Date: $date"
-        } else {
-            holder.weightShow.text = "Вес: $weight, Дата: $date"
-        }
+        holder.dateShow.text = date
+        holder.weightShow.text = weight.toString()
     }
 
     override fun getItemCount(): Int = itemList.size

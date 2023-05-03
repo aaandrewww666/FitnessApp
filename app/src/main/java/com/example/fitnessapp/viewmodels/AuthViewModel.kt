@@ -52,7 +52,7 @@ class AuthViewModel @Inject constructor(
     }.flowOn(Dispatchers.IO)
 
     fun authenticate()  = flow {
-            val result = authRepository.authenticate()
+        val result = authRepository.authenticate()
         emit(result)
     }.flowOn(Dispatchers.IO)
 }

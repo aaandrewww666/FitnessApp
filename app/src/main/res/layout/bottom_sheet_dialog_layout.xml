@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,10 +20,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/weight_edittext"
+                android:id="@+id/dialogWeightET"
                 android:layout_width="50dp"
                 android:layout_height="70dp"
-                android:layout_marginEnd="10dp"
                 android:background="@android:color/transparent"
                 android:inputType="number"
                 android:maxLength="3"
@@ -30,12 +30,40 @@
                 android:text="80"
                 android:textAlignment="center"
                 android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:autofillHints=""
+                app:layout_constraintTop_toBottomOf="@id/datePicker"
+                app:layout_constraintEnd_toStartOf="@id/dotTV"/>
+
+            <TextView
+                android:id="@+id/dotTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dot"
+                android:textColor="@color/black"
                 android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/button_add_weight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/datePicker"
-                android:autofillHints="" />
+                app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
+            <EditText
+                android:id="@+id/dialogWeightFractionET"
+                android:layout_width="31dp"
+                android:layout_height="69dp"
+                android:autofillHints=""
+                android:background="@android:color/transparent"
+                android:inputType="number"
+                android:maxLength="1"
+                android:singleLine="true"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/dotTV"
+                app:layout_constraintTop_toBottomOf="@+id/datePicker" />
             <TextView
                 android:id="@+id/kgTV"
                 android:layout_width="wrap_content"
@@ -43,9 +71,9 @@
                 android:text="@string/kg"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/weight_edittext"
-                app:layout_constraintStart_toEndOf="@+id/weight_edittext"
-                app:layout_constraintTop_toTopOf="@+id/weight_edittext" />
+                app:layout_constraintBottom_toBottomOf="@+id/dialogWeightFractionET"
+                app:layout_constraintStart_toEndOf="@+id/dialogWeightFractionET"
+                app:layout_constraintTop_toTopOf="@+id/dialogWeightFractionET" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_add_weight"
@@ -60,7 +88,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weight_edittext" />
+                app:layout_constraintTop_toBottomOf="@+id/dialogWeightET" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

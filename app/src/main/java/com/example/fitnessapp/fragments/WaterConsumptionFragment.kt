@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.fitnessapp.api.results.WeightResult
 import com.example.fitnessapp.databinding.FragmentWaterConsumptionBinding
 import com.example.fitnessapp.viewmodels.WaterConsumptionViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.single
@@ -32,9 +33,39 @@ class WaterConsumptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWaterConsumptionBinding.inflate(inflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.state.observe(viewLifecycleOwner) {
+            if (it.checking) {
+                binding.progressBar.visibility = ProgressBar.VISIBLE
+                binding.personShouldDrinkTV.visibility = TextView.INVISIBLE
+                binding.waterImage.visibility = ImageView.INVISIBLE
+                binding.ofFluidsTV.visibility = TextView.INVISIBLE
+                binding.showLitresLL.visibility = LinearLayout.INVISIBLE
+            } else {
+                binding.progressBar.visibility = ProgressBar.GONE
+                binding.personShouldDrinkTV.visibility = TextView.VISIBLE
+                binding.waterImage.visibility = ImageView.VISIBLE
+                binding.ofFluidsTV.visibility = TextView.VISIBLE
+                binding.showLitresLL.visibility = LinearLayout.VISIBLE
+            }
+        }
         lifecycleScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                viewModel.changeState(true)
+            }
             when(val weights = viewModel.getUserWeights().single()) {
-                is WeightResult.NotFound -> TODO()
+                is WeightResult.NotFound -> {
+                    withContext(Dispatchers.Main) {
+                        viewModel.changeState(false)
+                        binding.litresNumber.text =
+                            "%.3f".format(0f)
+                                .replace(",", ".")
+                    }
+                }
                 is WeightResult.Successful -> {
                     var averageWeight = 0.0
                     weights.data.userWeights.forEach { elem ->
@@ -49,29 +80,15 @@ class WaterConsumptionFragment : Fragment() {
                     }
                 }
                 else -> {
+                    withContext(Dispatchers.Main) {
+                        viewModel.changeState(false)
+                        binding.litresNumber.text =
+                            "%.3f".format(0f)
+                                .replace(",", ".")
+                        Snackbar.make(binding.root, "Что-то не так...", Snackbar.LENGTH_LONG)
+                    }
 
                 }
-            }
-        }
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.changeState(true)
-        viewModel.state.observe(viewLifecycleOwner) {
-            if (it.checking) {
-                binding.progressBar.visibility = ProgressBar.VISIBLE
-                binding.personShouldDrinkTV.visibility = TextView.INVISIBLE
-                binding.waterImage.visibility = ImageView.INVISIBLE
-                binding.ofFluidsTV.visibility = TextView.INVISIBLE
-                binding.showLitresLL.visibility = LinearLayout.INVISIBLE
-            } else {
-                binding.progressBar.visibility = ProgressBar.GONE
-                binding.personShouldDrinkTV.visibility = TextView.VISIBLE
-                binding.waterImage.visibility = ImageView.VISIBLE
-                binding.ofFluidsTV.visibility = TextView.VISIBLE
-                binding.showLitresLL.visibility = LinearLayout.VISIBLE
             }
         }
     }

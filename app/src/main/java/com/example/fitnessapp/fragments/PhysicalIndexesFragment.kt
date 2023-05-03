@@ -129,7 +129,7 @@ class PhysicalIndexesFragment : Fragment() {
             }
         }
 
-        binding.continuousSlider.addOnChangeListener { slider, value, fromUser ->
+        binding.heightSlider.addOnChangeListener { slider, value, fromUser ->
             viewModel.updateHeight(value.toInt())
         }
 
@@ -165,7 +165,6 @@ class PhysicalIndexesFragment : Fragment() {
                                     is WeightResult.Posted -> {
                                         withContext(Dispatchers.Main) {
                                             navController.navigate(R.id.action_physicalIndexesFragment_to_mainFragment)
-                                            viewModel.changeState(false)
                                         }
                                     }
                                     is WeightResult.Error -> {

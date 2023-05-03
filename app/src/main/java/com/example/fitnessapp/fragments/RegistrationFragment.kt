@@ -71,7 +71,7 @@ class RegistrationFragment : Fragment() {
                                 is PostResponseResult.Successful -> { //если авторизация успешна, переход на следующий экран
                                     withContext(Dispatchers.Main) {
                                         viewModel.changeState(false)
-                                        navController.navigate(R.id.action_registrationFragment_to_authorizationFragment2)
+                                        navController.navigate(R.id.action_registrationFragment_to_authorizationFragment)
                                     }
                                     Snackbar.make(
                                         binding.root,

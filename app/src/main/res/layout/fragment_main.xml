@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:id="@+id/drawerLayout"
     tools:openDrawer="start"
     tools:context=".fragments.MainFragment">
 

@@ -9,6 +9,18 @@
     android:orientation="vertical"
     tools:context=".fragments.StatisticsFragment">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/notFoundImg"
+        android:visibility="invisible"
+        android:background="@drawable/not_found"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="100dp"
@@ -26,9 +38,6 @@
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:background="@drawable/graph_shape"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +46,7 @@
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
+            android:background="@color/fourth_colour"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
     </LinearLayout>
@@ -65,6 +75,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/shape_for_button"
         android:text="@string/add_your_weight"
+        android:backgroundTint="@color/fifth_colour"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="22sp"

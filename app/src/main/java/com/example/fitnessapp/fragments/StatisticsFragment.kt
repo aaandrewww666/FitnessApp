@@ -1,10 +1,12 @@
 package com.example.fitnessapp.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
@@ -12,7 +14,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitnessapp.R
 import com.example.fitnessapp.api.results.WeightResult
 import com.example.fitnessapp.data.adapters.WeightAdapter
 import com.example.fitnessapp.databinding.FragmentStatisticsBinding
@@ -28,6 +29,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
 
 @AndroidEntryPoint
 class StatisticsFragment : Fragment() {
@@ -53,9 +55,11 @@ class StatisticsFragment : Fragment() {
                 binding.addWeightBtn.visibility = Button.INVISIBLE
                 binding.rvWeightData.visibility = RecyclerView.INVISIBLE
                 binding.addWeightBtn.isEnabled = false
+                binding.notFoundImg.visibility = ImageView.INVISIBLE
                 binding.linearLayout.visibility = LinearLayout.INVISIBLE
             } else {
                 binding.progressBar.visibility = ProgressBar.INVISIBLE
+                binding.notFoundImg.visibility = ImageView.INVISIBLE
                 binding.addWeightBtn.visibility = Button.VISIBLE
                 binding.rvWeightData.visibility = RecyclerView.VISIBLE
                 binding.addWeightBtn.isEnabled = true
@@ -69,31 +73,42 @@ class StatisticsFragment : Fragment() {
             }
             viewModel.getUserWeights()
         }
+
         lifecycleScope.launch(Dispatchers.IO) {
             viewModel.weight.collect { result ->
                 when (result) {
                     is WeightResult.Successful -> {
                         withContext(Dispatchers.Main) {
-                            val chart = binding.chart
                             val entries = ArrayList<Entry>()
-                            val xValues = ArrayList<String>()
+                            val xLabels = ArrayList<String>()
                             var counter = 0.0f
                             result.data.userWeights.forEach { elem ->
-                                xValues.add(elem.date)
+                                xLabels.add(elem.date)
                                 entries.add(Entry(counter, elem.userWeight.toFloat()))
                                 counter++
                             }
-                            val lineDataset = LineDataSet(entries, "Weights")
-                            lineDataset.color = R.color.blue
+                            val lineDataset = LineDataSet(entries, "Вес")
+                            lineDataset.color = Color.WHITE
+                            lineDataset.setCircleColor(Color.WHITE)
+                            lineDataset.valueTextColor = Color.WHITE
+                            lineDataset.highLightColor = Color.RED
 
                             val data = LineData(lineDataset)
-                            chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
-                            chart.animateY(1000)
-                            chart.description.text = ""
+                            data.setValueTextColor(Color.WHITE)
+                            data.isHighlightEnabled = true
+
+                            val chart = binding.chart
                             chart.data = data
-                            chart.xAxis.granularity = 1.0f
-                            chart.rendererRightYAxis
-                            chart.xAxis.valueFormatter = IndexAxisValueFormatter(xValues)
+                            chart.setScaleEnabled(true)
+                            chart.xAxis.spaceMin = 1f
+                            chart.axisRight.isEnabled = false
+                            chart.legend.isEnabled = false
+                            chart.xAxis.textColor = Color.WHITE
+                            chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+                            chart.xAxis.valueFormatter = IndexAxisValueFormatter(xLabels)
+                            chart.axisLeft.textColor = Color.WHITE
+                            chart.description.isEnabled = false
+
                             binding.rvWeightData.adapter = WeightAdapter(result.data.userWeights)
                             binding.rvWeightData.layoutManager =
                                 LinearLayoutManager(binding.root.context)
@@ -101,10 +116,23 @@ class StatisticsFragment : Fragment() {
                         }
                     }
                     is WeightResult.Error -> {
-                        showSnackbar(binding.root,result.errorMessage.toString())
+                        withContext(Dispatchers.Main) {
+                            showSnackbar(binding.root, result.errorMessage.toString())
+                        }
+                    }
+                    is WeightResult.NotFound -> {
+                        withContext(Dispatchers.Main) {
+                            binding.progressBar.visibility = ProgressBar.INVISIBLE
+                            binding.notFoundImg.visibility = ImageView.VISIBLE
+                            binding.addWeightBtn.visibility = Button.VISIBLE
+                            binding.addWeightBtn.isEnabled = true
+                            showSnackbar(binding.root, "Данных не найдено")
+                        }
                     }
                     else -> {
-                        showSnackbar(binding.root, "Что-то не так...")
+                        withContext(Dispatchers.Main) {
+                            showSnackbar(binding.root, "Что-то не так...")
+                        }
                     }
                 }
             }
@@ -115,7 +143,6 @@ class StatisticsFragment : Fragment() {
             bottomDialog.show(childFragmentManager,"bottomSheet")
         }
     }
-
 
     private fun showSnackbar(view : View, text : String) {
         Snackbar.make(
@@ -130,5 +157,4 @@ class StatisticsFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

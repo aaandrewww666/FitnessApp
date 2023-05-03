@@ -1,7 +1,6 @@
 package com.example.fitnessapp.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnessapp.R
 import com.example.fitnessapp.databinding.FragmentBodypartsBinding
-import com.example.fitnessapp.data.adapters.BodypartsAdapter
-import java.util.*
-import kotlin.collections.ArrayList
+import com.example.fitnessapp.data.adapters.ClassificationAdapter
+import com.example.fitnessapp.data.models.PlanarClassification
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class BodypartsFragment : Fragment() {
 
@@ -23,44 +23,19 @@ class BodypartsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBodypartsBinding.inflate(inflater)
-        val itemList : ArrayList<String>
-        Log.d("sss", Locale.getDefault().country)
-        if(Locale.getDefault().country != "RU") {
-            itemList = ArrayList(
-                listOf(
-                    "back",
-                    "cardio",
-                    "chest",
-                    "lower arms",
-                    "lower legs",
-                    "neck",
-                    "shoulders",
-                    "upper arms",
-                    "upper legs",
-                    "waist"
-                )
-            )
-        } else {
-            itemList = ArrayList(
-                listOf(
-                    "спина",
-                    "кардио",
-                    "грудь",
-                    "нижняя часть рук",
-                    "голени",
-                    "шея",
-                    "плечи",
-                    "верхняя часть рук",
-                    "верхняя часть ног",
-                    "талия"
-                )
-            )
-        }
 
-        binding.rvBodyparts.adapter = BodypartsAdapter(itemList, object : BodypartsAdapter.OnItemClickListener {
-            override fun clickListener(item: String) {
+        val jsonString by lazy {
+            requireContext().resources.openRawResource(R.raw.planar_training).bufferedReader().use { it.readText() }
+        }
+        val listPlanarClassificationType = object : TypeToken<List<PlanarClassification>>() {}.type
+        val bodyparts: List<PlanarClassification> = Gson().fromJson(
+            jsonString,
+            listPlanarClassificationType
+        )
+        binding.rvBodyparts.adapter = ClassificationAdapter(bodyparts, object : ClassificationAdapter.OnItemClickListener {
+            override fun clickListener(item: PlanarClassification) {
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, ExercisesFragment(item))
+                    .replace(R.id.fragment_container, ExercisesFragment(item.name))
                     .addToBackStack("exercises")
                     .commit()
             }

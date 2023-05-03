@@ -5,12 +5,12 @@
     android:background="@color/app_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.BodypartsFragment">
+    tools:context=".fragments.BodypartsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBodyparts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/rv_item"/>
+        tools:listitem="@layout/rv_item_classification"/>
 
 </LinearLayout>

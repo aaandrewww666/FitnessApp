@@ -47,4 +47,10 @@ interface Api {
         @Header("Authorization") token: String,
         @Body request: WeightRequest
     ): Response<MessageResponse>
+
+    @PUT("user/data")
+    suspend fun updateUserData(
+        @Header("Authorization") token: String,
+        @Body request: UserDataRequest
+    ): Response<MessageResponse>
 }

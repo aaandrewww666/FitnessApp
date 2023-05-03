@@ -24,6 +24,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutAge"
         android:layout_width="wrap_content"
+        android:padding="5dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/shape_for_buttons"
@@ -75,7 +76,7 @@
                 android:singleLine="true"
                 android:text="@string/minus"
                 android:textAlignment="center"
-                android:textColor="@color/purple"
+                android:textColor="@color/white"
                 android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toStartOf="@+id/buttonAgePlus"
                 android:textSize="30sp"
@@ -93,7 +94,7 @@
                 android:singleLine="true"
                 android:text="@string/plus"
                 android:textAlignment="center"
-                android:textColor="@color/purple"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -106,6 +107,7 @@
         android:id="@+id/linearLayoutWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:background="@drawable/shape_for_buttons"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -170,7 +172,6 @@
                 android:textSize="50sp" />
         </LinearLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintWeight"
             android:layout_width="wrap_content"
@@ -188,7 +189,7 @@
                 android:singleLine="true"
                 android:text="@string/minus"
                 android:textAlignment="center"
-                android:textColor="@color/purple"
+                android:textColor="@color/white"
                 android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toStartOf="@+id/buttonWeightPlus"
                 android:textSize="30sp"
@@ -206,7 +207,7 @@
                 android:singleLine="true"
                 android:text="@string/plus"
                 android:textAlignment="center"
-                android:textColor="@color/purple"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -253,12 +254,12 @@
             android:textStyle="bold"/>
 
         <com.google.android.material.slider.Slider
-            android:id="@+id/continuousSlider"
+            android:id="@+id/heightSlider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:value="180"
-            app:thumbColor="@color/purple"
+            app:thumbColor="@color/first_colour"
             app:tickVisible="false"
             app:trackColor="@color/white"
             android:stepSize="1"
@@ -324,7 +325,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:background="@drawable/shape_for_button"
+        android:background="@drawable/shape_for_buttons"
         android:text="@string/continue_text"
         android:textAllCaps="false"
         android:textColor="@color/white"

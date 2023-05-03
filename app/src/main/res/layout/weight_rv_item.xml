@@ -1,20 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp"
+    android:layout_marginTop="10dp"
     android:layout_gravity="center_horizontal"
     android:layout_width="match_parent"
-    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@color/fifth_colour"
     android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/weight_TV"
+            android:id="@+id/dateTV"
             android:background="@drawable/shape_for_weight_rv"
-            android:textSize="22sp"
-            android:text="sfgdgfd"
+            android:textSize="20sp"
+            android:text="date"
             android:padding="5dp"
-            android:textColor="@color/app_background"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@color/sixth_colour"
+            android:layout_height="wrap_content">
+                <TextView
+                    android:background="@drawable/shape_for_weight_rv"
+                    android:textSize="22sp"
+                    android:text="Вес:"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/weightTV"
+                    android:background="@drawable/shape_for_weight_rv"
+                    android:textSize="22sp"
+                    android:text="90.0"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
